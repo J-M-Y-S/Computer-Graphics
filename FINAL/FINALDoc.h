@@ -5,6 +5,8 @@
 
 #pragma once
 
+#include "Object3D.h"
+
 
 class CFINALDoc : public CDocument
 {
@@ -14,9 +16,18 @@ protected: // 仅从序列化创建
 
 // 特性
 public:
+	CObject3D* GetModel() { return &m_model; }
+	BOOL LoadModel(const CString& objPath, const CString& texturesDir);
 
 // 操作
 public:
+	bool m_bWireframe;
+	bool m_bLit;
+	bool m_bTextured;
+	bool m_bAutoRotate;
+	float m_rotY;
+	float m_rotX;
+	float m_zoom;
 
 // 重写
 public:
@@ -39,6 +50,7 @@ protected:
 
 // 生成的消息映射函数
 protected:
+	CObject3D m_model;
 	DECLARE_MESSAGE_MAP()
 
 #ifdef SHARED_HANDLERS

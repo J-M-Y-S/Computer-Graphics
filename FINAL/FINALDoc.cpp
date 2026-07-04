@@ -30,8 +30,13 @@ END_MESSAGE_MAP()
 
 CFINALDoc::CFINALDoc() noexcept
 {
-	// TODO: 在此添加一次性构造代码
-
+	m_bWireframe = true;
+	m_bLit = false;
+	m_bTextured = false;
+	m_bAutoRotate = false;
+	m_rotY = 0;
+	m_rotX = 0;
+	m_zoom = 1.0f;
 }
 
 CFINALDoc::~CFINALDoc()
@@ -43,8 +48,20 @@ BOOL CFINALDoc::OnNewDocument()
 	if (!CDocument::OnNewDocument())
 		return FALSE;
 
-	// TODO: 在此添加重新初始化代码
-	// (SDI 文档将重用该文档)
+	CString exeDir;
+	GetModuleFileName(AfxGetInstanceHandle(), exeDir.GetBuffer(MAX_PATH), MAX_PATH);
+	exeDir.ReleaseBuffer();
+	int pos = exeDir.ReverseFind(_T('\\'));
+	if (pos >= 0) exeDir = exeDir.Left(pos);
+
+	CString objPath = exeDir + _T("\\textures\\bae891247d7923349b1b693f25426e56.obj");
+	CString texDir = exeDir + _T("\\textures");
+	if (!m_model.Load(objPath, texDir))
+	{
+		objPath = _T("E:\\PY\\FINAL\\FINAL\\textures\\bae891247d7923349b1b693f25426e56.obj");
+		texDir = _T("E:\\PY\\FINAL\\FINAL\\textures");
+		m_model.Load(objPath, texDir);
+	}
 
 	return TRUE;
 }
@@ -134,5 +151,10 @@ void CFINALDoc::Dump(CDumpContext& dc) const
 }
 #endif //_DEBUG
 
+
+BOOL CFINALDoc::LoadModel(const CString& objPath, const CString& texturesDir)
+{
+	return m_model.Load(objPath, texturesDir) ? TRUE : FALSE;
+}
 
 // CFINALDoc 命令

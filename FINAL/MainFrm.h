@@ -36,6 +36,14 @@ protected:  // 控件条嵌入成员
 // 生成的消息映射函数
 protected:
 	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
+	afx_msg void OnViewWireframe();
+	afx_msg void OnViewLit();
+	afx_msg void OnViewTextured();
+	afx_msg void OnViewAutoRotate();
+	afx_msg void OnUpdateViewWireframe(CCmdUI* pCmdUI);
+	afx_msg void OnUpdateViewLit(CCmdUI* pCmdUI);
+	afx_msg void OnUpdateViewTextured(CCmdUI* pCmdUI);
+	afx_msg void OnUpdateViewAutoRotate(CCmdUI* pCmdUI);
 	DECLARE_MESSAGE_MAP()
 
 };

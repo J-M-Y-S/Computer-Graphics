@@ -6,6 +6,10 @@
 #define IDP_OLE_INIT_FAILED			100
 #define IDR_MAINFRAME				128
 #define IDR_FINALTYPE				130
+#define ID_VIEW_WIREFRAME			32771
+#define ID_VIEW_LIT					32772
+#define ID_VIEW_TEXTURED			32773
+#define ID_VIEW_AUTOROTATE			32774
 
 // 新对象的下一组默认值
 //

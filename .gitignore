@@ -27,3 +27,6 @@ x86/
 
 # ZIP / archives
 *.zip
+
+# OBJ models and textures (too large, extracted from zip at runtime)
+FINAL/textures/
