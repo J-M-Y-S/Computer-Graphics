@@ -321,6 +321,7 @@ void CFINALView::RenderFrame(CDC* pDC)
 	CTransform world = CTransform::RotationY(pDoc->m_rotY);
 	world.Multiply(CTransform::RotationX(pDoc->m_rotX));
 	world.Multiply(CTransform::Scaling(scale, scale, scale));
+	world.Multiply(CTransform::Translation(-pModel->GetCenterX(), -pModel->GetCenterY(), -pModel->GetCenterZ()));
 	CTransform view = CTransform::LookAt(0, 0, camDist, 0, 0, 0, 0, 1, 0);
 	CTransform proj = CTransform::PerspectiveFovRH(60.0f, aspect, 0.1f, 100.0f);
 	CTransform mvp = world; mvp.Multiply(view); mvp.Multiply(proj);

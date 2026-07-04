@@ -187,7 +187,7 @@ float CObject3D::GetNormalizeScale() const
     if (dy > maxExtent) maxExtent = dy;
     if (dz > maxExtent) maxExtent = dz;
     if (maxExtent < 1e-6f) return 1.0f;
-    return 2.0f / maxExtent;
+    return 1.8f / maxExtent;
 }
 
 bool CObject3D::ParseMTL(const CString& mtlPath, const CString& texturesDir)

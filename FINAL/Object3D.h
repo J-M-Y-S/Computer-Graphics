@@ -36,6 +36,9 @@ public:
     float GetMaxX() const { return m_bboxMax[0]; }
     float GetMaxY() const { return m_bboxMax[1]; }
     float GetMaxZ() const { return m_bboxMax[2]; }
+    float GetCenterX() const { return (m_bboxMin[0] + m_bboxMax[0]) * 0.5f; }
+    float GetCenterY() const { return (m_bboxMin[1] + m_bboxMax[1]) * 0.5f; }
+    float GetCenterZ() const { return (m_bboxMin[2] + m_bboxMax[2]) * 0.5f; }
     float GetNormalizeScale() const;
 
     CMaterial* GetMaterial() { return m_pMaterial; }
