@@ -1,0 +1,29 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.userprefs
+
+# Build outputs
+Debug/
+Release/
+x64/
+x86/
+[Bb]in/
+[Oo]bj/
+*.exe
+*.dll
+*.ilk
+*.pdb
+*.lib
+*.exp
+
+# IDE
+*.VC.db
+*.VC.opendb
+*.vcxproj.user
+
+# ZIP / archives
+*.zip
